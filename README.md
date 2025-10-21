@@ -2,14 +2,14 @@
 
 ## Итоговый проект PJ (36.7)
 
-ОС             : Windows 10 Домашняя 22H2
-IDE            : Qt Creator 17.0.1 (Qt 6.9.3 MSVC2022_64bit Версия 17.14.15)
-C++            : 20
-База данных    : QSqlDatabase SQLite
-TCP сервер     : QTcpServer
-TCP клиент     : QTcpSocket
-Интерфейс      : графический (Qt)
-Принцип работы : сервер-клиент
+- ОС             : Windows 10 Домашняя 22H2
+- IDE            : Qt Creator 17.0.1 (Qt 6.9.3 MSVC2022_64bit Версия 17.14.15)
+- C++            : 20
+- База данных    : QSqlDatabase SQLite
+- TCP сервер     : QTcpServer
+- TCP клиент     : QTcpSocket
+- Интерфейс      : графический (Qt)
+- Принцип работы : сервер-клиент
 
 Разработчик: Дмитрий Кучуро
 
