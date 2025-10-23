@@ -15,9 +15,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public slots:
-    void isWindowLoaded();
-
 protected slots:    
     void updateWindow();
 
