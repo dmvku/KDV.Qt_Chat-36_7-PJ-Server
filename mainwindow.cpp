@@ -15,30 +15,25 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Chat (server)");
 
     server_ = new Server;
+    selectedUserPtr_ = server_->getSelectedUserPtr();
 
-    QTimer::singleShot(50, this, &MainWindow::isWindowLoaded);
+    connect(server_, &Server::outAddServerLog, this, &MainWindow::addLog);
+    connect(server_, &Server::outSignalAddInUserListWidget, this, &MainWindow::addItemToUserWindow);
+    connect(server_, &Server::outSignalAddInChatListWidget, this, &MainWindow::addItemToChatWindow);
+
+    server_->connectToDatabase();
+    server_->updateUserListWindow();
+    server_->updateChatListWindow();
+    ui->IPAddressValue->setText(server_->getServerIPAddress());
+    ui->portValue->setText(QString::number(server_->getServerPort()));
+    ui->IPAddressValue->setText(server_->getServerIPAddress());
+    ui->portValue->setText(QString::number(server_->getServerPort()));
 }
 
 MainWindow::~MainWindow()
 {
     delete server_;    
     delete ui;
-}
-
-void MainWindow::isWindowLoaded()
-{
-    selectedUserPtr_ = server_->getSelectedUserPtr();
-    server_->connectToDatabase();
-    server_->updateUserListWindow();
-    server_->updateChatListWindow();
-    ui->IPAddressValue->setText(server_->getServerIPAddress());
-    ui->portValue->setText(QString::number(server_->getServerPort()));
-    disconnect(server_, &Server::outAddServerLog, this, &MainWindow::addLog);
-    disconnect(server_, &Server::outSignalAddInUserListWidget, this, &MainWindow::addItemToUserWindow);
-    disconnect(server_, &Server::outSignalAddInChatListWidget, this, &MainWindow::addItemToChatWindow);
-    connect(server_, &Server::outAddServerLog, this, &MainWindow::addLog);
-    connect(server_, &Server::outSignalAddInUserListWidget, this, &MainWindow::addItemToUserWindow);
-    connect(server_, &Server::outSignalAddInChatListWidget, this, &MainWindow::addItemToChatWindow);
 }
 
 void MainWindow::on_connectButton_clicked()
