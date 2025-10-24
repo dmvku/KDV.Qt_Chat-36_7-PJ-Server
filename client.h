@@ -8,9 +8,9 @@ class Client
 public:
     Client() = default;
     Client(qintptr socketDescriptor
-           , const int userID
+           , int userID
            , const QString& name
-           , const short status);           
+           , short status);
     ~Client();
 
     qintptr getSocketDescriptor();

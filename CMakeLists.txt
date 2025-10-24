@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Qt_Chat_Server VERSION 1.0 LANGUAGES CXX)
+project(Qt_Chat_Server VERSION 1.01 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -15,10 +15,10 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network Sql)
 
-file(GLOB_RECURSE SRC_FILES *.cpp)
-file(GLOB_RECURSE HEADER_FILES *.h)
-file(GLOB_RECURSE RC_FILES *.qrc)
-file(GLOB_RECURSE UI_FILES *.ui)
+file(GLOB_RECURSE SRC_FILES sources/*.cpp)
+file(GLOB_RECURSE HEADER_FILES sources/*.h)
+file(GLOB_RECURSE RC_FILES sources/*.qrc)
+file(GLOB_RECURSE UI_FILES sources/*.ui)
 
 # set(CMAKE_AUTOUIC ON)
 # set(CMAKE_AUTOMOC ON)

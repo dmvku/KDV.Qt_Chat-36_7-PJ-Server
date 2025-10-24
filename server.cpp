@@ -360,7 +360,10 @@ void Server::addNewMessage(qintptr socketDescriptor, QString data)
                              + " <TCP> <-- [" + getSocketAddress(socketDescriptor) + ":"
                              + getSocketPort(socketDescriptor) + "] add message from User ID \'"
                              + from + "\' to User ID \'" + to + "\'");
-        emit outSignalAddInChatListWidget(from, to, message, createTime);
+        emit outSignalAddInChatListWidget(getNameByUserIDFromCache(tempMessage.from_)
+                                          , getNameByUserIDFromCache(tempMessage.to_)
+                                          , message
+                                          , createTime);
 
         serverResponse = QString::number(ServerEnum::Commands::sendMessageResult_)
                          + delimiter_ + QString::number(ServerEnum::Commands::sendMessageDone_)

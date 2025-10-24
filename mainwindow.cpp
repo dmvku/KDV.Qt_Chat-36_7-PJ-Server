@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     server_->updateUserListWindow();
     server_->updateChatListWindow();
     ui->IPAddressValue->setText(server_->getServerIPAddress());
-    ui->portValue->setText(QString::number(server_->getServerPort()));    
+    ui->portValue->setText(QString::number(server_->getServerPort()));
 }
 
 MainWindow::~MainWindow()

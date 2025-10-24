@@ -161,9 +161,7 @@ void NetServer::dataTransmission(qintptr socketDescriptor, QString sendData)
     QTcpSocket* socket = clients_->value(socketDescriptor);
     if(socket)
     {
-        socket->waitForBytesWritten(-1);        
         socket->write((sendData  + packetSeparator_).toUtf8());
-        socket->waitForBytesWritten(-1);        
 
         QString serverResponse = QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm:ss")
                                  + " <TCP> --> Сlient [" + socket->peerAddress().toString()

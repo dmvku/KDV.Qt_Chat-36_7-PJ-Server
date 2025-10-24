@@ -1,9 +1,9 @@
 #include "client.h"
 
 Client::Client(qintptr socketDescriptor
-         , const int userID
+         , int userID
          , const QString& name
-         , const short status)
+         , short status)
          : socketDescriptor_{ socketDescriptor }
          , userID_{ userID }
          , name_{ name }
