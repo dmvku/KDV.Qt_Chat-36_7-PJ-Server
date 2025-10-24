@@ -74,8 +74,7 @@ void MainWindow::on_userListWidget_itemClicked(QListWidgetItem *item)
     {
         item->setSelected(false);
         server_->clearSelectedUser();        
-        ui->chatUsersLable->setText("Users");
-        ui->userOnlyCheckBox->setEnabled(false);
+        ui->chatUsersLable->setText("Users");        
         ui->banPushButton->setText("Ban");
         ui->banPushButton->setEnabled(false);
         ui->disconnectPushButton->setText("Disconnect");
